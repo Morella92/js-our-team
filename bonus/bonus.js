@@ -66,25 +66,44 @@ for (let i = 0; i < team.length; i++) {
     const positionHeld = currentMember.positionHeld
     const profileImg = currentMember.profileImg
 
+    //Creo elementi del DOM
     const rowEl = document.querySelector('.row')
     const colEl = document.getElementById('col')
+
+    let cardEl = document.createElement('div')
+    cardEl.classList.add('card', 'bg-success')
+
+    let cardBodyEl = document.createElement('div')
+    cardBodyEl.classList.add('card-body')
 
     let firstNameEl = document.createElement('h2')
     let lastNameEl = document.createElement('h2')
     let positionHeldEl = document.createElement('p')
     let profileImgEl = document.createElement('img')
 
+    //Imposto contenuto testo leggendo il valore
     firstNameEl.textContent = firstName
     lastNameEl.textContent = lastName
     positionHeldEl.textContent = positionHeld
     profileImgEl.setAttribute('src', '../img/' + profileImg)
 
-    colEl.appendChild(firstNameEl)
-    colEl.appendChild(lastNameEl)
-    colEl.appendChild(positionHeldEl)
-    colEl.appendChild(profileImgEl)
 
-    rowEl.appendChild(colEl);
-    containerEl.appendChild(rowEl);
+    //aggiungo classi bootstrap per stilizzare
+    firstNameEl.classList.add('card-title', 'fs-4', 'text-center', 'fw-bold', 'text-white')
+    lastNameEl.classList.add('card-title', 'fs-4', 'text-center', 'fw-bold', 'text-white')
+    positionHeldEl.classList.add('card-text', 'text-center', 'text-uppercase', 'fst-italic', 'fw-bold')
+    profileImgEl.classList.add('card-img-top', 'img-thumbnail', 'rounded')
+
+
+    //stampo nel browser
+    cardBodyEl.appendChild(firstNameEl)
+    cardBodyEl.appendChild(lastNameEl)
+    cardBodyEl.appendChild(positionHeldEl)
+    cardEl.appendChild(profileImgEl)
+
+    cardEl.appendChild(cardBodyEl)
+    colEl.appendChild(cardEl)
+    rowEl.appendChild(colEl)
+    containerEl.appendChild(rowEl)
 }
 
