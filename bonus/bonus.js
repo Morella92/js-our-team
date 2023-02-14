@@ -54,7 +54,7 @@ for (let key in team) {
 // MILESTONE 2:
 // Stampare le stesse informazioni su DOM sotto forma di stringhe
 
-const container = document.getElementById('container')
+const containerEl = document.getElementById('container')
 
 for (let i = 0; i < team.length; i++) {
 
@@ -66,6 +66,8 @@ for (let i = 0; i < team.length; i++) {
     const positionHeld = currentMember.positionHeld
     const profileImg = currentMember.profileImg
 
+    const rowEl = document.querySelector('.row')
+    const colEl = document.getElementById('col')
 
     let firstNameEl = document.createElement('h2')
     let lastNameEl = document.createElement('h2')
@@ -75,11 +77,14 @@ for (let i = 0; i < team.length; i++) {
     firstNameEl.textContent = firstName
     lastNameEl.textContent = lastName
     positionHeldEl.textContent = positionHeld
-    profileImgEl.setAttribute('src', profileImg) 
+    profileImgEl.setAttribute('src', '../img/' + profileImg)
 
-    container.appendChild(firstNameEl)
-    container.appendChild(lastNameEl)
-    container.appendChild(positionHeldEl)
-    container.appendChild(profileImgEl)
+    colEl.appendChild(firstNameEl)
+    colEl.appendChild(lastNameEl)
+    colEl.appendChild(positionHeldEl)
+    colEl.appendChild(profileImgEl)
+
+    rowEl.appendChild(colEl);
+    containerEl.appendChild(rowEl);
 }
 
