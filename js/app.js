@@ -68,9 +68,12 @@ for (let i = 0; i < team.length; i++) {
     const positionHeld = currentMember.positionHeld
     const profileImg = currentMember.profileImg
 
-    teamList += '<h2>Name: </h2>' + firstName + '<h2>Last name: </h2>'
-        + lastName + '<p>Position Held: </p>' + positionHeld + 
-        '<p>Image: </p>' + profileImg
+    teamList +=
+    `<h2>Name: ${firstName} </h2>
+    <h2>Last name: ${lastName}</h2>
+    <p>Position Held: ${positionHeld}</p>
+    <p>Image: ${profileImg}</p>
+    `
 }
 
 container.innerHTML = teamList
